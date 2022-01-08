@@ -8,7 +8,9 @@ class Conexao
     private $database;
     private $prefix;
     private $consulta;
-    static private $conn;
+    protected $obj, $itens=array();
+    
+    private static $conn;
 
     public function __construct()
     {
@@ -19,11 +21,11 @@ class Conexao
         $this->prefix = $_ENV['DB_PREFIX'];
 
         try {
-          if(empty($this->conectar)){
-            $this->conectar();
-          }
-        }catch(Exception $e){
-          exit($e->getMessage().'<h2>Erro ao conectar com o banco de dados!!</h2>');
+            if (empty($this->conectar)) {
+                $this->conectar();
+            }
+        } catch (Exception $e) {
+            exit($e->getMessage().'<h2>Erro ao conectar com o banco de dados!!</h2>');
         }
     }
 
@@ -40,16 +42,24 @@ class Conexao
         );
     }
 
-    function executeSQL($query, array $params = NULL){
-      $this->consulta = $this->conn->prepare($query);
-      return $this->consulta->execute();
+    public function executeSQL($query, array $params = null)
+    {
+        $this->consulta = $this->conn->prepare($query);
+        return $this->consulta->execute();
     }
 
-    function listarDados(){
-      return $this->consulta->fetch(PDO::FETCH_ASSOC);
+    public function listarDados()
+    {
+        return $this->consulta->fetch(PDO::FETCH_ASSOC);
     }
 
-    function totalDados(){
-      return $this->consulta->rowCount();
+    public function totalDados()
+    {
+        return $this->consulta->rowCount();
+    }
+
+    public function getItens()
+    {
+        return $this->itens;
     }
 }

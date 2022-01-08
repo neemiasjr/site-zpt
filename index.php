@@ -19,5 +19,4 @@
   $smarty->assign('PAG_MINHACONTA', Rota::get_MinhaConta());
   $smarty->assign('TITULO_SITE', Config::SITE_NOME);
  
-
   $smarty->display('index.tpl');

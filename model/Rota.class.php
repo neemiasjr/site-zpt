@@ -22,6 +22,14 @@ Class Rota{
     return self::get_SiteHome() . 'carrinho';
   }
 
+  static function get_Produto(){
+    return self::get_SiteHome() . 'produto';
+  }
+
+  static function get_ProdutoInfo(){
+    return self::get_SiteHome() . 'produto_info';
+  }
+
   static function get_Contato(){
     return self::get_SiteHome() . 'contato';
   }
@@ -30,15 +38,28 @@ Class Rota{
     return self::get_SiteHome() . 'minhaconta';
   }
 
+  static function getImagePasta(){
+    return 'media/images/';
+  }
+
+  static function getImageURL(){
+    return self::get_SiteHome() . '/' . self::getImagePasta();
+  }
+
+  static function ImageLink($img, $largura, $altura){
+    $image = self::getImageURL() . "thumb.php?src={$img}&w={$largura}&h={$altura}&zc=1";
+  }
+
 
   static function get_pagina(){
+
     if(!empty($_GET['pag'])){
 
       $pagina = $_GET['pag'];
 
       self::$pag = explode('/', $pagina);
 
-      $pagina = 'controller/'.$_GET['pag'].'.php';
+      $pagina = 'controller/' .self::$pag[0] . '.php';
       if(file_exists($pagina)){
         return include $pagina;
       }
