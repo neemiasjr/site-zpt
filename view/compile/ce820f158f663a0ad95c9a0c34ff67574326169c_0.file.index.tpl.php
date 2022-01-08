@@ -1,26 +1,66 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 3.1.40, created on 2022-01-08 01:46:01
+  from '/Users/neemiasjr/git-desafios-empresas/desafio-zpt/site-zpt/view/index.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.40',
+  'unifunc' => 'content_61d8ecd9dba234_28719749',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'ce820f158f663a0ad95c9a0c34ff67574326169c' => 
+    array (
+      0 => '/Users/neemiasjr/git-desafios-empresas/desafio-zpt/site-zpt/view/index.tpl',
+      1 => 1641606357,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_61d8ecd9dba234_28719749 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
 
 <html>
     <head>
-        <title>{$TITULO_SITE}</title>
+        <title><?php echo $_smarty_tpl->tpl_vars['TITULO_SITE']->value;?>
+</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-        <link href="{$GET_TEMPLATE}/tema/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="{$GET_TEMPLATE}/tema/contatos/contatos.css" rel="stylesheet" type="text/css"/>
-        <script src="{$GET_TEMPLATE}/tema/js/jquery-2.2.1.min.js" type="text/javascript"></script>
-        <script src="{$GET_TEMPLATE}/tema/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="{$GET_TEMPLATE}/tema/contatos/contatos.js" type="text/javascript"></script>
+        <link href="<?php echo $_smarty_tpl->tpl_vars['GET_TEMPLATE']->value;?>
+/tema/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo $_smarty_tpl->tpl_vars['GET_TEMPLATE']->value;?>
+/tema/contatos/contatos.css" rel="stylesheet" type="text/css"/>
+        <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMPLATE']->value;?>
+/tema/js/jquery-2.2.1.min.js" type="text/javascript"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMPLATE']->value;?>
+/tema/js/bootstrap.min.js" type="text/javascript"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMPLATE']->value;?>
+/tema/contatos/contatos.js" type="text/javascript"><?php echo '</script'; ?>
+>
         
         <!-- meu aquivo pessoal de CSS-->
-        <link href="{$GET_TEMPLATE}/tema/css/tema.css" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo $_smarty_tpl->tpl_vars['GET_TEMPLATE']->value;?>
+/tema/css/tema.css" rel="stylesheet" type="text/css"/>
 
         
      <!-- HTML5 shim e Respond.js para suporte no IE8 de elementos HTML5 e media queries -->
     <!-- ALERTA: Respond.js não funciona se você visualizar uma página file:// -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <?php echo '<script'; ?>
+ src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"><?php echo '</script'; ?>
+>
+      <?php echo '<script'; ?>
+ src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"><?php echo '</script'; ?>
+>
     <![endif]-->
     
     </head>
@@ -35,7 +75,8 @@
                 
                 <div class="container">
                     <div class="col-md-5">      
-                        <img src="{$GET_TEMPLATE}/imagens/logoc.png" alt=""> 
+                        <img src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMPLATE']->value;?>
+/imagens/logoc.png" alt=""> 
                     </div>
                     <div class="col-md-7">
                         <h3>Bem vindo a Loja ZPT!</h3> 
@@ -69,11 +110,15 @@
                         
                         <div class="collapse navbar-collapse" id="navbar">
                             <ul class="nav navbar-nav">
-                                <li><a href="{$GET_HOME}"><i class="glyphicon glyphicon-home"></i> Home </a> </li>
+                                <li><a href="<?php echo $_smarty_tpl->tpl_vars['GET_HOME']->value;?>
+"><i class="glyphicon glyphicon-home"></i> Home </a> </li>
                                
-                                <li><a href="{$PAG_MINHACONTA}"><i class="glyphicon glyphicon-user"></i> Minha Conta </a> </li>
-                                <li><a href="{$PAG_CARRINHO}"><i class="glyphicon glyphicon-shopping-cart"></i> Carrinho </a> </li>
-                                <li><a href="{$PAG_CONTATO}" ><i class="glyphicon glyphicon-envelope"></i> Contato </a> </li>
+                                <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_MINHACONTA']->value;?>
+"><i class="glyphicon glyphicon-user"></i> Minha Conta </a> </li>
+                                <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_CARRINHO']->value;?>
+"><i class="glyphicon glyphicon-shopping-cart"></i> Carrinho </a> </li>
+                                <li><a href="<?php echo $_smarty_tpl->tpl_vars['PAG_CONTATO']->value;?>
+" ><i class="glyphicon glyphicon-envelope"></i> Contato </a> </li>
                                 
                                 
                                
@@ -137,9 +182,9 @@
                     </ul>   
                     <!-- fim do menu breadcrumb-->             
                 
-                    {php}
+                    <?php 
                         Rota::get_Pagina();
-                    {/php}
+                    ?>
                   
                     
                 </div>  <!--fim coluna direita-->  
@@ -156,7 +201,8 @@
             <!-- começa div rodape -->
             <div class="row" id="rodape">
                 <center>
-                    <h4>{$TITULO_SITE}</h4>
+                    <h4><?php echo $_smarty_tpl->tpl_vars['TITULO_SITE']->value;?>
+</h4>
                     <P>Todos os direitos reservados - Souza Tech Sistemas de TI</p>
                 </center>
             
@@ -171,3 +217,5 @@
         
     </body>
 </html>
+<?php }
+}
