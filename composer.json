@@ -2,7 +2,8 @@
   "require": {
     "smarty/smarty": "~3.1",
     "vlucas/phpdotenv": "^5.4",
-    "php": "^7.4"
+    "php": "^7.4",
+    "ext-gd": "*"
   },
   "autoload": {
     "classmap": [
