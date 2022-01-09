@@ -34,7 +34,7 @@ class Conexao
         $options = array(
           PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
           PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING);
-        return $this->conn = new PDO(
+        return self::$conn = new PDO(
             "mysql:host={$this->host};dbname={$this->database}",
             $this->user,
             $this->senha,
@@ -44,7 +44,7 @@ class Conexao
 
     public function executeSQL($query, array $params = null)
     {
-        $this->consulta = $this->conn->prepare($query);
+        $this->consulta = self::$conn->prepare($query);
         return $this->consulta->execute();
     }
 
