@@ -12,7 +12,7 @@
   
   //echo Rota::get_SiteTemplate();
 
-  $smarty->assign('GET_TEMPLATE', Rota::get_SiteTemplate());
+  $smarty->assign('GET_TEMPLATE', Rota::getSiteTemplate());
   $smarty->assign('GET_HOME', Rota::get_SiteHome());
   $smarty->assign('PAG_CARRINHO', Rota::get_Carrinho());
   $smarty->assign('PAG_CONTATO', Rota::get_Contato());

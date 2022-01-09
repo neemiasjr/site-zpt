@@ -14,7 +14,7 @@ Class Rota{
     return $_SERVER['DOCUMENT_ROOT'] . '/' . $_ENV['SITE_HOME'];
   }
 
-  static function get_SiteTemplate(){
+  static function getSiteTemplate(){
     return self::get_SiteHome() . self::$pasta_view;
   }
 
@@ -39,15 +39,17 @@ Class Rota{
   }
 
   static function getImagePasta(){
-    return 'media/images/';
+    return $_ENV['SITE_URL_BASE_IMG_PRODUTO'];
   }
 
   static function getImageURL(){
-    return self::get_SiteHome() . '/' . self::getImagePasta();
+    return self::get_SiteHome() .'/' .self::getImagePasta();
   }
 
   static function ImageLink($img, $largura, $altura){
+
     $image = self::getImageURL() . "thumb.php?src={$img}&w={$largura}&h={$altura}&zc=1";
+    return $image;
   }
 
 

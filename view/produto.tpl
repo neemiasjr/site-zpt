@@ -17,14 +17,13 @@
 
 
     <div class="row" id="pularliha">
-      {foreach from=$LISTA_PRODUTOS item=P}
+      {foreach from=$PRO item=P}
 
         <li class="col-md-4">
 
           <div class="thumbnail">
 
             <a href="{$PRO_INFO}/{$P.pro_id}/{$P.pro_slug}">
-
 
               <img src="{$P.pro_img}" width="200" height="200" alt="">
 

@@ -34,7 +34,7 @@ class Conexao
         $options = array(
           PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
           PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING);
-        $this->conn = new PDO(
+        return $this->conn = new PDO(
             "mysql:host={$this->host};dbname={$this->database}",
             $this->user,
             $this->senha,
@@ -58,8 +58,7 @@ class Conexao
         return $this->consulta->rowCount();
     }
 
-    public function getItens()
-    {
-        return $this->itens;
-    }
+    function getItens(){
+		return $this->itens;
+	}
 }

@@ -5,7 +5,8 @@ $produtos = new Produto();
 $produtos->getProdutosID(Rota::$pag[1]);
 
 $smarty->assign('PRO', $produtos->GetItens());
-$smarty->assign('TEMA', Rota::get_SiteTemplate());
+$smarty->assign('TEMA', Rota::getSiteTemplate());
+
 
 //var_dump($produtos->getItens());
 
