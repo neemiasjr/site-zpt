@@ -2,13 +2,14 @@
 
   require './vendor/autoload.php';
 
-  //Configurando redis para 
+  //Configurando redis para heroku
 
-  if($_ENV['REDIS_URL']) {
+  if(!empty($_ENV['REDIS_URL'])) {
     $redisUrlParts = parse_url($_ENV['REDIS_URL']);
     ini_set('session.save_handler','redis');
     ini_set('session.save_path',"tcp://$redisUrlParts[host]:$redisUrlParts[port]?auth=$redisUrlParts[pass]");
   }
+
 
   //################Habilitando variaveis de ambiente .env ou do Sistema operacional########
   $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
