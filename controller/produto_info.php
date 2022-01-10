@@ -2,7 +2,7 @@
 
 $smarty = new Template();
 $produtos = new Produto();
-$produtos->getProdutosID(Rota::$pag[1]);
+$produtos->getByID(Rota::$pag[1]);
 
 $smarty->assign('PRO', $produtos->GetItens());
 $smarty->assign('TEMA', Rota::getSiteTemplate());

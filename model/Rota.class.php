@@ -6,44 +6,48 @@ Class Rota{
   private static $pasta_view = 'view';
 
 
-  static function get_SiteHome(){
+  static function getSiteHome(){
     return $_ENV['SITE_URL'] . '/' . $_ENV['SITE_HOME'];
   }
 
-  static function get_SiteRaiz(){
+  static function getSiteRaiz(){
     return $_SERVER['DOCUMENT_ROOT'] . '/' . $_ENV['SITE_HOME'];
   }
 
   static function getSiteTemplate(){
-    return self::get_SiteHome() . self::$pasta_view;
+    return self::getSiteHome() . self::$pasta_view;
   }
 
-  static function get_Carrinho(){
-    return self::get_SiteHome() . 'carrinho';
+  static function getCarrinho(){
+    return self::getSiteHome() . 'carrinho';
   }
 
-  static function get_Produto(){
-    return self::get_SiteHome() . 'produto';
+  static function getProduto(){
+    return self::getSiteHome() . 'produto';
   }
 
-  static function get_ProdutoInfo(){
-    return self::get_SiteHome() . 'produto_info';
+  static function getProdutoInfo(){
+    return self::getSiteHome() . 'produto_info';
   }
 
-  static function get_Contato(){
-    return self::get_SiteHome() . 'contato';
+  static function getContato(){
+    return self::getSiteHome() . 'contato';
   }
 
-  static function get_MinhaConta(){
-    return self::get_SiteHome() . 'minhaconta';
+  static function getMinhaConta(){
+    return self::getSiteHome() . 'minhaconta';
   }
+
+  static function paginaProdutos(){
+		return  self::getSiteHome(). 'produto';
+	}
 
   static function getImagePasta(){
     return $_ENV['SITE_URL_BASE_IMG_PRODUTO'];
   }
 
   static function getImageURL(){
-    return self::get_SiteHome() .'/' .self::getImagePasta();
+    return self::getSiteHome() .'/' .self::getImagePasta();
   }
 
   static function ImageLink($img, $largura, $altura){

@@ -8,9 +8,10 @@ class Conexao
     private $database;
     private $prefix;
     private $consulta;
-    protected $obj, $itens=array();
-    
     private static $conn;
+    protected $obj, $itens=array();
+    public $paginacao_links, $totalpags, $limite, $inicio;
+
 
     public function __construct()
     {
@@ -22,14 +23,14 @@ class Conexao
 
         try {
             if (empty($this->conectar)) {
-                $this->conectar();
+                $this->__conectar();
             }
         } catch (Exception $e) {
             exit($e->getMessage().'<h2>Erro ao conectar com o banco de dados!!</h2>');
         }
     }
 
-    private function conectar()
+    private function __conectar()
     {
         $options = array(
           PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
@@ -58,7 +59,33 @@ class Conexao
         return $this->consulta->rowCount();
     }
 
+    public function quantidadePorPagina(){
+        if(!empty($this->totalDados())){
+            return ceil($this->totalDados() / $_ENV['BD_LIMIT_POR_PAG']);
+        }
+	}
+
     function getItens(){
 		return $this->itens;
+	}
+
+    function getPaginacaoLinks($campo, $tabela){
+		$pag = new Paginacao();
+		$pag->GetPaginacao($campo, $tabela);
+		$this->paginacao_links = $pag->link;
+
+		$this->totalpags = $pag->totalpags;
+		$this->limite = $pag->limite;
+		$this->inicio = $pag->inicio;
+
+		$inicio = $pag->inicio;
+		$limite = $pag->limite;
+
+		if($this->totalpags > 0){
+			return " limit {$inicio}, {$limite}";
+		}else{
+			return " ";
+		}
+		
 	}
 }

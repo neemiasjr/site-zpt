@@ -18,29 +18,32 @@
 
     <div class="row" id="pularliha">
       {foreach from=$PRO item=P}
+        
+        <!-- mostrando apenas os produtos ativos -->
+        {if $P.pro_ativo == 1 }
+          
+          <li class="col-md-4">
 
-        <li class="col-md-4">
+            <div class="thumbnail">
 
-          <div class="thumbnail">
+              <a href="{$PRO_INFO}/{$P.pro_id}/{$P.pro_slug}">
 
-            <a href="{$PRO_INFO}/{$P.pro_id}/{$P.pro_slug}">
+                <img src="{$P.pro_img}" width="200" height="200" alt="">
 
-              <img src="{$P.pro_img}" width="200" height="200" alt="">
+                <div class="caption">
 
-              <div class="caption">
+                  <h4 class="text-center"> {$P.pro_nome}</h4>
 
-                <h4 class="text-center"> {$P.pro_nome}</h4>
+                  <h3 class="text-center text-danger">{$P.pro_valor}</h3>
 
-                <h3 class="text-center text-danger">{$P.pro_valor}</h3>
+                </div>
 
-              </div>
+              </a>
 
-            </a>
+            </div>
+          </li>
 
-          </div>
-
-
-        </li>
+        {/if}
 
       {/foreach}
 

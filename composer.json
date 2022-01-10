@@ -3,12 +3,14 @@
     "smarty/smarty": "~3.1",
     "vlucas/phpdotenv": "^5.4",
     "php": "^7.4",
-    "ext-gd": "*"
+    "ext-gd": "*",
+    "ext-redis": "5.x"
   },
   "autoload": {
     "classmap": [
       "model/",
-      "config/"
+      "config/",
+      "helpers"
     ]
   }
 }

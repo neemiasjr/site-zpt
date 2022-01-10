@@ -3,12 +3,12 @@
 
 $smarty = new Template();
 $produtos = new Produto();
-$produtos->getProdutos();
+$produtos->getAll();
 
 $smarty->assign('PRO', $produtos->getItens());
-$smarty->assign('PRO_INFO', Rota::get_ProdutoInfo());
-$smarty->assign('SITE_RAIZ', Rota::get_SiteRaiz());
-$smarty->assign('SITE_IMG_PASTA', Rota::getImagePasta());
+$smarty->assign('PRO_INFO', Rota::getProdutoInfo());
+$smarty->assign('PRO_TOTAL', $produtos->TotalDados());
+$smarty->assign('PRODUTOS', Rota::paginaProdutos());
 
 
 //var_dump($produtos->getItens());
