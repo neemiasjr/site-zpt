@@ -1,7 +1,6 @@
 <?php
 
 $smarty = new Template();
-1w-
 $produtos = new Produto();
 
 
