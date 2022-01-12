@@ -1,20 +1,25 @@
 <?php
-
+$txt_busca = "";
 $smarty = new Template();
 $produtos = new Produto();
 
+if(!empty($_GET['txt_buscar'])){
+	$txt_busca = $_GET['txt_buscar'];
+}
 
-if(isset(Rota::$pag[1]) && !isset($_POST['txt_buscar'])){
+$txt_busca = !empty($_POST['txt_buscar']) ? $_POST['txt_buscar'] : null;
+
+if(!empty(Rota::$pag[1]) && empty($txt_busca)){
 	$produtos->getByCateID(Rota::$pag[1]);
 
-}elseif(isset($_POST['txt_buscar'])){
+}elseif(!empty($txt_busca)){
 	
-				$nome = filter_var($_POST['txt_buscar'], FILTER_SANITIZE_STRING);
+				$nome = filter_var($txt_busca, FILTER_SANITIZE_STRING);
 				$produtos->getProdutosByNome($nome);
 
-}elseif(isset($_POST['txt_buscar']) && isset(Rota::$pag[1])){
+}elseif(!empty($txt_busca) && !empty(Rota::$pag[1])){
 	
-				$nome = filter_var($_POST['txt_buscar'], FILTER_SANITIZE_STRING);
+				$nome = filter_var($txt_busca, FILTER_SANITIZE_STRING);
 				$produtos->getProdutosByNome($nome);
 	
 }else{

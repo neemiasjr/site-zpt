@@ -4,6 +4,7 @@ Class Rota{
   public static $pag;
   private static $pasta_controller;
   private static $pasta_view = 'view';
+  private static $pasta_ADM = 'adm';
 
 
   static function getSiteHome(){
@@ -55,6 +56,18 @@ Class Rota{
     $image = self::getImageURL() . "thumb.php?src={$img}&w={$largura}&h={$altura}&zc=1";
     return $image;
   }
+
+  //Rota crud
+
+  static function getSiteADM(){
+		return self::getSiteHome() .'/' .self::$pasta_ADM;
+
+	}
+
+  static function pag_ProdutosADM(){
+		return self::getSiteADM() .'/adm_produtos';
+
+	}
 
 
   static function get_pagina(){

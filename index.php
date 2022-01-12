@@ -1,6 +1,15 @@
 <?php
 
+  date_default_timezone_set('America/Sao_Paulo');
+
+  if(!isset($_SESSION)){
+    session_start();
+  }
+
   require './vendor/autoload.php';
+
+
+
 
   //Configurando redis para heroku
 
@@ -19,7 +28,7 @@
 
   $smarty = new Template();
   $categorias = new Categorias();
-
+  $categorias->getCategorias();
 
   //dados de produto
   $produtos = new Produto();
@@ -38,8 +47,8 @@
   $smarty->assign('PAG_CONTATO', Rota::getContato());
   $smarty->assign('PAG_MINHACONTA', Rota::getMinhaConta());
   $smarty->assign('PAG_PRODUTOS', Rota::paginaProdutos());
-  $smarty->assign('TITULO_SITE', Config::SITE_NOME);
-  $smarty->assign('CATEGORIAS', $categorias->GetItens());
+  $smarty->assign('TITULO_SITE', $_ENV['SITE_NOME']);
+  $smarty->assign('CATEGORIAS', $categorias->getItens());
 
  
   $smarty->display('index.tpl');

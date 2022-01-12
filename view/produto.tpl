@@ -46,10 +46,11 @@
 
                 <div class="caption" >
 
-                  <h4 class="text-center"> {$P.pro_nome}</h4>
+                  <h4 class="text-center"> <s>{$P.pro_nome}</s></h4>
 
-                  <h3 class="text-center text-danger">{$P.pro_valor}</h3>
-                
+                  <h3 class="text-center text-danger"><s>{$P.pro_valor}</s></h3>
+
+                  <h2 class="text-center text-danger"><u>Indisponível</u></h2>
                 </div>
               </div>
             {/if}

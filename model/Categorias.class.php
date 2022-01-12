@@ -11,28 +11,28 @@ Class Categorias extends Conexao{
 		parent::__construct();
 	}
 
-	function GetCategorias(){
+	function getCategorias(){
 		//query para buscar os produtos de uma categoria especifica.
-		$query = "SELECT * FROM {$this->prefix}categorias";
+		$query = "SELECT * FROM ".$_ENV['DB_PREFIX']."categorias";
 
-		$this->ExecuteSQL($query);
+		$this->executeSQL($query);
 
-		$this->GetLista();
+		$this->getLista();
 		
 	}
 
 
 
-	private function GetLista(){
+	private function getLista(){
 		$i = 1;
 		while($lista = $this->ListarDados()):
 		$this->itens[$i] = array(
 			 'cate_id' => $lista['cate_id'],
 			 'cate_nome'  => $lista['cate_nome'] ,  
 	         'cate_slug'  => $lista['cate_slug'] ,  
-	         'cate_link'  => Rotas::pag_Produtos(). '/' .$lista['cate_id'] . '/' . $lista['cate_slug']  , 
+	         'cate_link'  => Rota::getProduto(). '/' .$lista['cate_id'] . '/' . $lista['cate_slug']  , 
 			
-			'cate_link_adm'  => Rotas::pag_ProdutosADM(). '/' .$lista['cate_id'] . '/' . $lista['cate_slug']  , 
+			'cate_link_adm'  => Rota::pag_ProdutosADM(). '/' .$lista['cate_id'] . '/' . $lista['cate_slug']  , 
 					);
 
 
@@ -43,7 +43,7 @@ Class Categorias extends Conexao{
 
 
 
-	function Inserir($cate_nome){
+	function inserir($cate_nome){
         
         // trato os campos
         $this->setCate_nome($cate_nome);
@@ -74,7 +74,7 @@ Class Categorias extends Conexao{
 
 
 
-    function Editar($cate_id,$cate_nome){
+    function editar($cate_id,$cate_nome){
         
         // trato os campos
         $this->setCate_nome($cate_nome);
@@ -103,7 +103,7 @@ Class Categorias extends Conexao{
 
 
 
-     function Apagar($cate_id){
+     function apagar($cate_id){
         
           // verifico se  tenho itens antes de apagar a categoria
           $pro = new Produtos();
@@ -125,7 +125,7 @@ Class Categorias extends Conexao{
         $params = array(':id' => (int)$cate_id);
         // executo a SQL
     
-         if($this->ExecuteSQL($query, $params)):
+         if($this->executeSQL($query, $params)):
                 return TRUE;
                 
             else:
