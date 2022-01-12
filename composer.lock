@@ -141,16 +141,16 @@
         },
         {
             "name": "smarty/smarty",
-            "version": "v3.1.42",
+            "version": "v3.1.43",
             "source": {
                 "type": "git",
                 "url": "https://github.com/smarty-php/smarty.git",
-                "reference": "b674cba13d4ae61f063aec20f84a3ec40c006124"
+                "reference": "273f7e00fec034f6d61112552e9caf08d19565b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/b674cba13d4ae61f063aec20f84a3ec40c006124",
-                "reference": "b674cba13d4ae61f063aec20f84a3ec40c006124",
+                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/273f7e00fec034f6d61112552e9caf08d19565b7",
+                "reference": "273f7e00fec034f6d61112552e9caf08d19565b7",
                 "shasum": ""
             },
             "require": {
@@ -198,9 +198,9 @@
                 "forum": "http://www.smarty.net/forums/",
                 "irc": "irc://irc.freenode.org/smarty",
                 "issues": "https://github.com/smarty-php/smarty/issues",
-                "source": "https://github.com/smarty-php/smarty/tree/v3.1.42"
+                "source": "https://github.com/smarty-php/smarty/tree/v3.1.43"
             },
-            "time": "2022-01-09T23:08:36+00:00"
+            "time": "2022-01-10T09:52:40+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",

@@ -37,18 +37,58 @@ class Produto extends Conexao
 
     public function getByID($id)
     {
-        if($id){
-            //Busca produtos de 1 categoria
-            $query = "SELECT * 
-                    FROM {$_ENV['DB_PREFIX']}produtos p INNER JOIN
-                        {$_ENV['DB_PREFIX']}categorias c ON p.pro_categoria = c.cate_id";
-            $query .= " AND pro_id = {$id}";
-            //this->conn->bindParam(':id', $id);
-            $this->executeSQL($query);
-            $this->getLista();
-        }
+        //query para buscar os produtos de uma categoria especifica.
+        $query = "SELECT * FROM {$_ENV['DB_PREFIX']}produtos p INNER JOIN {$_ENV['DB_PREFIX']}categorias c ON p.pro_categoria = c.cate_id";
+
+        $query .= " AND pro_id = :id";
+
+        $params = array(':id'=>(int)$id);
+
+        $this->ExecuteSQL($query, $params);
+
+        $this->getLista();
     }
 
+    public function getByCateID($id)
+    {
+        //query para buscar os produtos de uma categoria especifica.
+
+        $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
+
+        $query = "SELECT * FROM {$_ENV['DB_PREFIX']}produtos p INNER JOIN {$_ENV['DB_PREFIX']}categorias c ON p.pro_categoria = c.cate_id";
+
+        $query .= " AND pro_categoria = :id";
+
+        $query .= $this->getPaginacaoLinks("pro_id", $_ENV['DB_PREFIX']."produtos WHERE pro_categoria=".(int)$id);
+
+
+
+        $params = array(':id'=>(int)$id);
+
+        $this->ExecuteSQL($query, $params);
+
+        $this->GetLista();
+    }
+
+    public function getProdutosByNome($nome)
+    {
+        
+          // monto a SQL
+        $query = "SELECT * FROM {$_ENV['DB_PREFIX']}produtos p INNER JOIN {$_ENV['DB_PREFIX']}categorias c ON p.pro_categoria = c.cate_id";
+        $query .= " WHERE pro_nome LIKE '%$nome%'";
+        $query .= $this->getPaginacaoLinks("pro_id", $_ENV['DB_PREFIX']."produtos WHERE pro_nome LIKE '%$nome%'");
+
+
+        
+        // passando parametros
+        $params = array(':nome'=>$nome);
+        // executando a SQL
+        $this->ExecuteSQL($query, $params);
+        // trazendo a listagem
+        $this->GetLista();
+    }
+
+    
     private function getLista(){
 		$i = 1;
 		while($lista = $this->listarDados()):
@@ -115,7 +155,7 @@ class Produto extends Conexao
 
     public function inserir()
     {
-        $query = "INSERT INTO {$this->prefix}produtos (pro_nome, pro_categoria, pro_ativo, pro_modelo, pro_ref," ;
+        $query = "INSERT INTO {$_ENV['DB_PREFIX']}produtos (pro_nome, pro_categoria, pro_ativo, pro_modelo, pro_ref," ;
         $query.= " pro_valor, pro_estoque, pro_peso , pro_altura, pro_largura, pro_comprimento ,pro_img, pro_desc, pro_slug)";
         $query.= " VALUES ";
         $query.= " ( :pro_nome, :pro_categoria, :pro_ativo, :pro_modelo, :pro_ref, :pro_valor, :pro_estoque, :pro_peso ,";
@@ -151,7 +191,7 @@ class Produto extends Conexao
 
     public function alterar($id)
     {
-        $query = " UPDATE {$this->prefix}produtos SET pro_nome=:pro_nome, pro_categoria=:pro_categoria," ;
+        $query = " UPDATE {$_ENV['DB_PREFIX']}produtos SET pro_nome=:pro_nome, pro_categoria=:pro_categoria," ;
         $query.= " pro_ativo=:pro_ativo, pro_modelo=:pro_modelo, pro_ref=:pro_ref,";
         $query.= " pro_valor=:pro_valor, pro_estoque=:pro_estoque, pro_peso=:pro_peso , ";
         $query.= " pro_altura=:pro_altura, pro_largura=:pro_largura,";
@@ -191,7 +231,7 @@ class Produto extends Conexao
 
     public function deletar($id)
     {
-        $query = "DELETE FROM {$this->prefix}produtos WHERE pro_id = :id";
+        $query = "DELETE FROM {$_ENV['DB_PREFIX']}produtos WHERE pro_id = :id";
         $params = array(
             ':id' => (int)$id
             );

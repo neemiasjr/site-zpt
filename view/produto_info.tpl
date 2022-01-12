@@ -1,3 +1,5 @@
+<script src="{$GET_TEMPLATE}/tema/contatos/contatos.js" type="text/javascript"></script>
+
 {foreach from=$PRO item=P}
 
   <h3 class="text-center">{$P.pro_nome} - Ref: {$P.pro_ref}</h3>
@@ -26,26 +28,13 @@
       </div>
 
       <div class="col-md-6">
-        <form name="carrinho" method="post" action="">
+        <form name="carrinho" id="formComprar" method="post">
           <input type="hidden" name="pro_id" value="{$P.pro_id}">
           <input type="hidden" name="acao" value="add">
           <button class="btn btn-success btn-lg">Comprar</button>
         </form>
-
       </div>
-
-
-
-
-
-
-
-
     </div>
-
-
-
-
   </div>
   <!-- -->
   {*  listagem de imagens extras  *}
@@ -78,6 +67,4 @@
   </div>
   <br>
   <br>
-
-
 {/foreach}

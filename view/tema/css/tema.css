@@ -33,6 +33,13 @@ color: #fff;
       
   }
 
+#imagem-disabled{
+  opacity: 0.5;
+  border:none !important;
+  background: transparent !important;
+  box-shadow:none !important;
+}
+
 
 /* CLASSES OVERRIDE DO BOOTSTRAP para personalização*/
 
@@ -80,4 +87,7 @@ a.list-group-item{
     
     
 }
+
+
+
 

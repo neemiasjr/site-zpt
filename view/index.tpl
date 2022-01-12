@@ -12,6 +12,7 @@
   <script src="{$GET_TEMPLATE}/tema/js/jquery-2.2.1.min.js" type="text/javascript"></script>
   <script src="{$GET_TEMPLATE}/tema/js/bootstrap.min.js" type="text/javascript"></script>
   <script src="{$GET_TEMPLATE}/tema/contatos/contatos.js" type="text/javascript"></script>
+  <script src="../lib/js/index.js" type="text/javascript"></script>
 
   <!-- meu aquivo pessoal de CSS-->
   <link href="{$GET_TEMPLATE}/tema/css/tema.css" rel="stylesheet" type="text/css" />
@@ -78,8 +79,9 @@
               <li><a href="{$PAG_MINHACONTA}"><i class="glyphicon glyphicon-user"></i> Minha Conta </a> </li>
               <li><a href="{$PAG_CONTATO}"><i class="glyphicon glyphicon-envelope"></i> Contato </a> </li>
               <li class="nav-item dropdown dropdown-cart mr-25"><a class="nav-link" href="{$PAG_CARRINHO}"
-                data-toggle="dropdown"><i class="glyphicon glyphicon-shopping-cart" data-feather="shopping-cart"></i><span
-                  class="badge badge-pill badge-primary badge-up cart-item-count">6</span></a>
+                  data-toggle="dropdown"><i class="glyphicon glyphicon-shopping-cart"
+                    data-feather="shopping-cart"></i><span
+                    class="badge badge-pill badge-primary badge-up cart-item-count">6</span></a>
                 <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
                   <li class="dropdown-menu-header">
                     <div class="dropdown-header d-flex">
@@ -172,12 +174,12 @@
                 </ul>
               </li>
             </ul>
-            
 
 
-            <form class="navbar-form navbar-right" role="search">
+
+            <form class="navbar-form navbar-right" role="search" method="POST" id="formBuscarProduto">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Digite para buscar" required>
+                <input type="text" name="txt_buscar" class="form-control txt_buscar" placeholder="Digite para buscar" required>
               </div>
               <button type="submit" class="btn btn-primary">Buscar</button>
             </form>
