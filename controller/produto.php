@@ -1,7 +1,7 @@
-<h2>Esta é a página do produto</h2>
 <?php
 
 $smarty = new Template();
+1w-
 $produtos = new Produto();
 
 
