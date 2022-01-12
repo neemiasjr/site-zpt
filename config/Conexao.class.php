@@ -46,6 +46,13 @@ class Conexao
     public function executeSQL($query, array $params = null)
     {
         $this->consulta = self::$conn->prepare($query);
+        
+        if(!empty($params)){
+            foreach($params as $key => &$val){
+                $this->consulta->bindParam($key, $val);
+            }
+        }
+
         return $this->consulta->execute();
     }
 

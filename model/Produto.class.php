@@ -29,7 +29,7 @@ class Produto extends Conexao
               FROM {$_ENV['DB_PREFIX']}produtos p INNER JOIN
               {$_ENV['DB_PREFIX']}categorias c ON p.pro_categoria = c.cate_id";
         $query .= " ORDER BY pro_id DESC";
-        $this->ExecuteSQL($query);
+        $this->executeSQL($query);
         
 		$this->getLista();
        
@@ -44,7 +44,7 @@ class Produto extends Conexao
 
         $params = array(':id'=>(int)$id);
 
-        $this->ExecuteSQL($query, $params);
+        $this->executeSQL($query, $params);
 
         $this->getLista();
     }
@@ -65,9 +65,9 @@ class Produto extends Conexao
 
         $params = array(':id'=>(int)$id);
 
-        $this->ExecuteSQL($query, $params);
+        $this->executeSQL($query, $params);
 
-        $this->GetLista();
+        $this->getLista();
     }
 
     public function getProdutosByNome($nome)
@@ -83,9 +83,9 @@ class Produto extends Conexao
         // passando parametros
         $params = array(':nome'=>$nome);
         // executando a SQL
-        $this->ExecuteSQL($query, $params);
+        $this->executeSQL($query, $params);
         // trazendo a listagem
-        $this->GetLista();
+        $this->getLista();
     }
 
     
